@@ -35,7 +35,7 @@ export default function CareersPage() {
                     <span>⏱️ {job.type}</span>
                   </div>
                 </div>
-                <Link href={`/contact?apply=${encodeURIComponent(job.role)}`} className="btn btn-outline btn-sm" style={{ flexShrinks: 0 }}>
+                <Link href={`/contact?apply=${encodeURIComponent(job.role)}`} className="btn btn-outline btn-sm" style={{ flexShrink: 0 }}>
                   Apply Now
                 </Link>
               </div>
