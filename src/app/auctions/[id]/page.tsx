@@ -61,7 +61,7 @@ export default function AuctionDetailPage({ params }: { params: Promise<{ id: st
   const [isPending, setIsPending] = useState(false);
 
   // Synchronise dashboard active bids storage buffer instantly upon newly verified local bid placements
-  const updateDashboardCache = (bidAmountNum: number) => {
+  const updateDashboardCache = (bidAmountNum: number, finalStatus: string = "winning") => {
     try {
       const cachedStr = localStorage.getItem("threadbid_active_bids");
       let activeBidsArr = [];
@@ -76,7 +76,7 @@ export default function AuctionDetailPage({ params }: { params: Promise<{ id: st
           ...activeBidsArr[existingIdx],
           myBid: bidAmountNum,
           currentBid: bidAmountNum,
-          status: "winning"
+          status: finalStatus
         };
       } else {
         activeBidsArr.unshift({
@@ -85,7 +85,7 @@ export default function AuctionDetailPage({ params }: { params: Promise<{ id: st
           brand: auction.brand,
           myBid: bidAmountNum,
           currentBid: bidAmountNum,
-          status: "winning",
+          status: finalStatus,
           endTime: "22m"
         });
       }
@@ -116,8 +116,6 @@ export default function AuctionDetailPage({ params }: { params: Promise<{ id: st
 
       if (serverRes?.error) {
         setShowToast(`Server Concurrency Fault: ${serverRes.error}`);
-        setIsPending(false);
-        setTimeout(() => setShowToast(""), 4000);
         return;
       }
 
@@ -130,11 +128,11 @@ export default function AuctionDetailPage({ params }: { params: Promise<{ id: st
         placedAt: new Date().toISOString(),
       };
 
-      setBids([newBid, ...bids]);
+      setBids((prev) => [newBid, ...prev]);
       setCurrentBid(amount);
       setBidCount((c) => c + 1);
       setWalletBalance((b) => b - deductionDelta);
-      updateDashboardCache(amount);
+      updateDashboardCache(amount, "winning");
       setShowToast(
         deductionDelta > 0
           ? `Bid locked securely on DB! Incremental ${formatCurrency(deductionDelta)} reserved.`
@@ -168,8 +166,6 @@ export default function AuctionDetailPage({ params }: { params: Promise<{ id: st
 
       if (serverRes?.error) {
         setShowToast(`Server Concurrency Fault: ${serverRes.error}`);
-        setIsPending(false);
-        setTimeout(() => setShowToast(""), 4000);
         return;
       }
 
@@ -181,12 +177,12 @@ export default function AuctionDetailPage({ params }: { params: Promise<{ id: st
         placedAt: new Date().toISOString(),
       };
 
-      setBids([newBid, ...bids]);
+      setBids((prev) => [newBid, ...prev]);
       setCurrentBid(amount);
       setBidCount((c) => c + 1);
       setWalletBalance((b) => b - deductionDelta);
       setIsPurchased(true);
-      updateDashboardCache(amount);
+      updateDashboardCache(amount, "won");
       setShowToast("Escrow cleared natively via high-speed DB transactions!");
     } catch (err: any) {
       setShowToast("Network failure clearing absolute transactions.");
