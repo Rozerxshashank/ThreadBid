@@ -59,20 +59,20 @@ const INITIAL_PENDING_LISTINGS = [
 ];
 
 const INITIAL_USERS = [
-  { id: "u1", email: "seller@fabindia.com", role: "seller" as const, name: "FabIndia Outlet", kyc: "verified" as const, status: "active" as const, joined: "Jan 2026" },
-  { id: "u2", email: "buyer@gmail.com", role: "buyer" as const, name: "Rahul M.", kyc: "pending" as const, status: "active" as const, joined: "Mar 2026" },
-  { id: "u3", email: "seller@biba.com", role: "seller" as const, name: "Biba Clearance", kyc: "verified" as const, status: "active" as const, joined: "Feb 2026" },
-  { id: "u4", email: "flagged@test.com", role: "buyer" as const, name: "Suspicious User", kyc: "rejected" as const, status: "suspended" as const, joined: "Apr 2026" },
+  { id: "u1", email: "seller@fabindia.com", role: "seller", name: "FabIndia Outlet", kyc: "verified", status: "active", joined: "Jan 2026" },
+  { id: "u2", email: "buyer@gmail.com", role: "buyer", name: "Rahul M.", kyc: "pending", status: "active", joined: "Mar 2026" },
+  { id: "u3", email: "seller@biba.com", role: "seller", name: "Biba Clearance", kyc: "verified", status: "active", joined: "Feb 2026" },
+  { id: "u4", email: "flagged@test.com", role: "buyer", name: "Suspicious User", kyc: "rejected", status: "suspended", joined: "Apr 2026" },
 ];
 
 const INITIAL_AUCTIONS = [
-  { id: "aa1", title: "Premium Cotton T-Shirts — 200 pcs", seller: "FabIndia", status: "live" as const, currentBid: 18500, bids: 14 },
-  { id: "aa2", title: "Designer Kurta Set — 50 pcs", seller: "Biba", status: "live" as const, currentBid: 31000, bids: 8 },
-  { id: "aa3", title: "Silk Sarees — 25 pcs", seller: "Nalli", status: "settled" as const, currentBid: 92000, bids: 6 },
+  { id: "aa1", title: "Premium Cotton T-Shirts — 200 pcs", seller: "FabIndia", status: "live", currentBid: 18500, bids: 14 },
+  { id: "aa2", title: "Designer Kurta Set — 50 pcs", seller: "Biba", status: "live", currentBid: 31000, bids: 8 },
+  { id: "aa3", title: "Silk Sarees — 25 pcs", seller: "Nalli", status: "settled", currentBid: 92000, bids: 6 },
 ];
 
 const INITIAL_DISPUTES = [
-  { id: "dp1", auction: "Linen Shirts — 80 pcs", raisedBy: "buyer@example.com", reason: "Items not as described", status: "open" as const, date: "May 10, 2026" },
+  { id: "dp1", auction: "Linen Shirts — 80 pcs", raisedBy: "buyer@example.com", reason: "Items not as described", status: "open", date: "May 10, 2026" },
 ];
 
 export default function AdminPanel() {

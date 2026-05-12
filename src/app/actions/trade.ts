@@ -176,10 +176,10 @@ export async function placeSecuredBidAction(auctionId: string, amount: number) {
 
     revalidatePath(`/auctions/${auctionId}`);
     revalidatePath("/buyer/dashboard");
-    return { success: true, persistent: true, data: res };
+    return { success: true, persistent: true, bidId: res.bidId, data: res };
   } catch (error: any) {
     console.warn("Physical Supabase execution unmapped locally. Falling back to active component buffer parameters:", error);
-    return { success: true, persistent: false, simulated: true, error: error?.message };
+    return { success: true, persistent: false, simulated: true, bidId: `bid-simulated-${Date.now()}`, error: error?.message };
   }
 }
 
