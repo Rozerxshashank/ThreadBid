@@ -1,0 +1,125 @@
+.wrapper {
+  background: var(--color-cream);
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+  padding: var(--space-2xl) 0;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  margin: var(--space-xl) 0;
+}
+
+.label {
+  text-align: center;
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--color-accent);
+  margin-bottom: var(--space-xs);
+}
+
+.track {
+  display: flex;
+  width: max-content;
+  animation: scrollLeftToRight 28s linear infinite;
+}
+
+/* Hovering over the track pauses the animation for premium feel */
+.wrapper:hover .track {
+  animation-play-state: paused;
+}
+
+.brandGroup {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 5rem;
+  padding-left: 5rem;
+}
+
+.brandItem {
+  font-size: 1.75rem;
+  color: var(--color-charcoal);
+  opacity: 0.85;
+  transition: all var(--transition-base);
+  cursor: default;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 8px 16px;
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+}
+
+.brandItem:hover {
+  opacity: 1;
+  transform: translateY(-4px) scale(1.05);
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+  box-shadow: var(--shadow-md);
+}
+
+.brandSans {
+  font-family: var(--font-body);
+  font-weight: 900;
+  letter-spacing: -0.05em;
+}
+
+.brandSerif {
+  font-family: var(--font-heading);
+  font-style: italic;
+  font-weight: 800;
+}
+
+/* Left to right infinite keyframe */
+@keyframes scrollLeftToRight {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* Fade gradients on left and right edges for rich glassmorphism/premium effect */
+.wrapper::before,
+.wrapper::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 140px;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.wrapper::before {
+  left: 0;
+  background: linear-gradient(to right, var(--color-cream), transparent);
+}
+
+.wrapper::after {
+  right: 0;
+  background: linear-gradient(to left, var(--color-cream), transparent);
+}
+
+@media (max-width: 768px) {
+  .brandGroup {
+    gap: 3rem;
+    padding-left: 3rem;
+  }
+  .brandItem {
+    font-size: 1.375rem;
+    padding: 6px 12px;
+  }
+  .wrapper::before,
+  .wrapper::after {
+    width: 60px;
+  }
+}

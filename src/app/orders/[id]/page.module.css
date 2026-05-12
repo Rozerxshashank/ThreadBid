@@ -1,0 +1,267 @@
+.page {
+  padding: var(--space-2xl) 0 var(--space-4xl);
+  min-height: calc(100vh - var(--header-height));
+}
+
+.inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--space-lg);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-2xl);
+}
+
+.titleArea {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.title {
+  font-size: 2rem;
+  color: var(--color-charcoal);
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: var(--space-2xl);
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
+}
+
+.card {
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl);
+}
+
+.sectionTitle {
+  font-size: 0.875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-warm-grey);
+  margin-bottom: var(--space-lg);
+}
+
+/* Status Card */
+.statusCard {
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl);
+}
+
+.statusHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-xl);
+}
+
+.statusLabel {
+  font-size: 0.813rem;
+  font-weight: 700;
+  color: var(--color-accent);
+}
+
+.progress {
+  display: flex;
+  align-items: center;
+  margin-bottom: var(--space-xl);
+}
+
+.progressStep {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-sm);
+  position: relative;
+  z-index: 1;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--color-border);
+}
+
+.active .dot {
+  background: var(--color-accent);
+  box-shadow: 0 0 0 4px var(--color-success-light);
+}
+
+.label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-warm-grey);
+}
+
+.active .label {
+  color: var(--color-charcoal);
+}
+
+.progressLine {
+  flex: 1;
+  height: 2px;
+  background: var(--color-border-light);
+  margin: -20px var(--space-xs) 0;
+}
+
+.statusNote {
+  font-size: 0.875rem;
+  color: var(--color-warm-grey);
+}
+
+/* Item Row */
+.itemRow {
+  display: flex;
+  gap: var(--space-md);
+  margin-bottom: var(--space-xl);
+}
+
+.itemImage {
+  width: 80px;
+  height: 80px;
+  background: var(--color-cream);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+}
+
+.itemInfo {
+  flex: 1;
+}
+
+.itemName {
+  font-size: 1.125rem;
+  margin-bottom: 4px;
+}
+
+.itemMeta {
+  font-size: 0.875rem;
+  color: var(--color-warm-grey);
+}
+
+.itemCondition {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-top: 4px;
+}
+
+.itemPrice {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.paymentSummary {
+  border-top: 1px solid var(--color-border-light);
+  padding-top: var(--space-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.summaryRow {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.938rem;
+  color: var(--color-warm-grey);
+}
+
+.feeNote {
+  font-size: 0.813rem;
+  font-style: italic;
+}
+
+.summaryTotal {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-charcoal);
+  margin-top: var(--space-sm);
+}
+
+/* Sidebar */
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
+}
+
+.addressBox {
+  font-size: 0.938rem;
+  line-height: 1.6;
+}
+
+.addressName {
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.addressPhone {
+  margin-top: 8px;
+  color: var(--color-warm-grey);
+}
+
+.sellerBox {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.sellerAvatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--color-cream);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  color: var(--color-accent);
+}
+
+.sellerName {
+  font-weight: 600;
+  font-size: 0.938rem;
+}
+
+.sellerRating {
+  font-size: 0.813rem;
+  color: var(--color-warm-grey);
+}
+
+@media (max-width: 900px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-md);
+  }
+  .title {
+    font-size: 1.5rem;
+  }
+}

@@ -1,0 +1,311 @@
+.page {
+  padding: var(--space-2xl) 0 var(--space-3xl);
+  min-height: calc(100vh - var(--header-height));
+}
+
+.inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--space-lg);
+}
+
+.header {
+  margin-bottom: var(--space-xl);
+}
+
+.title {
+  font-size: 2rem;
+  color: var(--color-charcoal);
+  margin-bottom: 4px;
+}
+
+.subtitle {
+  font-size: 0.938rem;
+  color: var(--color-warm-grey);
+}
+
+.statsRow {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-md);
+  margin-bottom: var(--space-lg);
+}
+
+.statCard {
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.statWinning {
+  border-color: var(--color-accent);
+  background: var(--color-success-light);
+}
+
+.statValue {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-charcoal);
+  font-variant-numeric: tabular-nums;
+}
+
+.statLabel {
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--color-warm-grey);
+}
+
+/* Notification */
+.notification {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  padding: var(--space-md) var(--space-lg);
+  background: var(--color-warning-light);
+  border: 1px solid #FDE68A;
+  border-radius: var(--radius-lg);
+  margin-bottom: var(--space-xl);
+}
+
+.notifIcon {
+  color: var(--color-warning);
+  flex-shrink: 0;
+}
+
+.notifContent {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex: 1;
+  gap: var(--space-md);
+}
+
+.notifText {
+  font-size: 0.875rem;
+  color: var(--color-warning);
+}
+
+.notifAction {
+  font-size: 0.813rem;
+  font-weight: 600;
+  color: var(--color-warning);
+  white-space: nowrap;
+  transition: opacity var(--transition-fast);
+}
+
+.notifAction:hover {
+  opacity: 0.7;
+}
+
+/* Tabs */
+.tabs {
+  display: flex;
+  border-bottom: 1px solid var(--color-border);
+  margin-bottom: var(--space-xl);
+}
+
+.tab {
+  padding: 12px 20px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-warm-grey);
+  border-bottom: 2px solid transparent;
+  transition: all var(--transition-fast);
+}
+
+.tab:hover {
+  color: var(--color-charcoal);
+}
+
+.tabActive {
+  color: var(--color-charcoal);
+  font-weight: 600;
+  border-bottom-color: var(--color-charcoal);
+}
+
+/* Bid Cards */
+.cardGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-lg);
+}
+
+.bidCard {
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+  transition: box-shadow var(--transition-base);
+}
+
+.bidCard:hover {
+  box-shadow: var(--shadow-md);
+}
+
+.bidCardWinning {
+  border-left: 3px solid var(--color-accent);
+}
+
+.bidCardOutbid {
+  border-left: 3px solid var(--color-live-red);
+}
+
+.bidCardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-sm);
+}
+
+.bidBrand {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-warm-grey);
+}
+
+.statusWinning {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-accent);
+}
+
+.statusOutbid {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-live-red);
+}
+
+.bidCardTitle {
+  font-family: var(--font-body);
+  font-size: 0.938rem;
+  font-weight: 600;
+  color: var(--color-charcoal);
+  margin-bottom: var(--space-md);
+  line-height: 1.35;
+}
+
+.bidCardRow {
+  display: flex;
+  gap: var(--space-xl);
+}
+
+.bidCardLabel {
+  display: block;
+  font-size: 0.688rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--color-warm-grey);
+  margin-bottom: 2px;
+}
+
+.bidCardValue {
+  display: block;
+  font-size: 0.938rem;
+  font-weight: 600;
+  color: var(--color-charcoal);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Table */
+.tableWrap {
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table th {
+  text-align: left;
+  padding: 10px 16px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--color-warm-grey);
+  border-bottom: 1px solid var(--color-border);
+  white-space: nowrap;
+}
+
+.table td {
+  padding: 14px 16px;
+  font-size: 0.875rem;
+  color: var(--color-charcoal);
+  border-bottom: 1px solid var(--color-border-light);
+  vertical-align: middle;
+}
+
+.table tbody tr:hover {
+  background: var(--color-surface-hover);
+}
+
+.tableTitle {
+  font-weight: 500;
+}
+
+.tableSub {
+  font-size: 0.75rem;
+  color: var(--color-warm-grey);
+}
+
+.mono {
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+}
+
+.statusPaid {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-accent);
+  text-transform: capitalize;
+}
+
+.statusPending {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-warning);
+  text-transform: capitalize;
+}
+
+.statusDispatched {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #1D4ED8;
+  text-transform: capitalize;
+}
+
+@media (max-width: 1024px) {
+  .statsRow {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .cardGrid {
+    grid-template-columns: 1fr;
+  }
+  .statsRow {
+    grid-template-columns: 1fr 1fr;
+  }
+  .title {
+    font-size: 1.5rem;
+  }
+  .bidCardRow {
+    flex-wrap: wrap;
+    gap: var(--space-md);
+  }
+  .notifContent {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
