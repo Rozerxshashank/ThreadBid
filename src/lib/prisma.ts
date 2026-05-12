@@ -2,10 +2,8 @@ import { PrismaClient } from "@prisma/client";
 
 const prismaClientSingleton = () => {
   try {
-    // Prisma v7 explicitly maps runtime connection targets via client constructor configurations
-    return new PrismaClient({
-      datasourceUrl: process.env.DATABASE_URL,
-    });
+    // Prisma v7 natively coordinates connection string targets directly from prisma.config.ts mappings
+    return new PrismaClient();
   } catch (err) {
     console.warn("Prisma compilation driver disconnected in current runtime context. Mapping highly interactive simulation Proxy wrapper:");
     return new Proxy({}, {
